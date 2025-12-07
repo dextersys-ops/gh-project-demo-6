@@ -6,7 +6,7 @@ jobs:
         strategy:
             matrix:
                 node-version: [12, 14, 16]
-                operation-system: [ubuntu-latest, windows-latest]
+                operation-system1: [ubuntu-latest, windows-latest]
         runs-on: ubuntu-latest
         steps:
          - name: Checkout the code
