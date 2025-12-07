@@ -42,7 +42,7 @@ jobs:
           name: test-report
           path: test.json
   build_job:
-    needs: test
+    needs: test_job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -64,11 +64,11 @@ jobs:
           name: dist-files
           path: dist
   deploy_job:
-    needs: build
+    needs: build_job
     uses: ./github/workflows/reusable.yml
 
   report_job:
-    needs: [lint, deploy]
+    needs: [lint_job, deploy_job]
     if: failure()
     runs-on: ubuntu-latest
     steps:
